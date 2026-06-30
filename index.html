@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastel Brew Café - อบอุ่น คาเฟ่</title>
+    <!-- Google Fonts: Prompt & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prompt:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Prompt', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            'light': '#FDFBF7',    /* ครีมนม อบอุ่น */
+                            'bg': '#F5EBE0',       /* นมชมพู/น้ำตาลพาสเทลสว่าง */
+                            'clay': '#E6CCB2',     /* คาราเมลอ่อน */
+                            'tan': '#DDB892',      /* น้ำตาลพาสเทลอบอุ่น */
+                            'milk': '#EDE0D4',     /* ครีมโฟมนม */
+                            'brown': '#9C6644',    /* น้ำตาลกาแฟ */
+                            'espresso': '#7F5539', /* เอสเพรสโซ่เข้มข้น */
+                            'dark': '#4A3525'      /* สีตัวอักษรหลักโทนน้ำตาลเข้ม */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom scrollbar to match aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #DDB892;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9C6644;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-pastel-light text-pastel-dark font-sans overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-pastel-light/85 backdrop-blur-md border-b border-pastel-clay/30 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <span class="p-2 bg-pastel-clay rounded-full text-pastel-espresso group-hover:bg-pastel-tan transition-all duration-300">
+                    <i class="fa-solid fa-mug-hot text-xl"></i>
+                </span>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg tracking-wider text-pastel-espresso leading-tight">PASTEL BREW</span>
+                    <span class="text-xs text-pastel-brown tracking-widest -mt-1">อบอุ่น คาเฟ่</span>
+                </div>
+            </a>
+
+            <!-- Menu Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-8 font-medium">
+                <a href="#hero" class="hover:text-pastel-espresso text-pastel-brown/80 transition-colors">หน้าแรก</a>
+                <a href="#about" class="hover:text-pastel-espresso text-pastel-brown/80 transition-colors">เรื่องราวของเรา</a>
+                <a href="#menu" class="hover:text-pastel-espresso text-pastel-brown/80 transition-colors">3 เมนูพิเศษ</a>
+                <a href="#reviews" class="hover:text-pastel-espresso text-pastel-brown/80 transition-colors">ความประทับใจ</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div>
+                <a href="#menu" class="bg-pastel-espresso text-pastel-light px-5 py-2 rounded-full font-medium hover:bg-pastel-brown shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                    สั่งกาแฟเลย <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative overflow-hidden pt-12 pb-20 md:py-32">
+        <!-- Abstract Pastel Shapes in Background -->
+        <div class="absolute -top-12 -left-12 w-64 h-64 bg-pastel-bg/50 rounded-full filter blur-3xl z-0"></div>
+        <div class="absolute top-1/2 -right-20 w-80 h-80 bg-pastel-clay/30 rounded-full filter blur-3xl z-0"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Hero Left: Title & Text -->
+            <div class="space-y-6 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EFE3D3] rounded-full text-sm text-pastel-espresso font-medium">
+                    <span class="w-2.5 h-2.5 rounded-full bg-pastel-brown animate-pulse"></span>
+                    <span>ต้อนรับเช้าวันใหม่ด้วยความนุ่มละมุน</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-pastel-espresso leading-tight">
+                    สัมผัสรสชาติกาแฟ<br>
+                    <span class="text-pastel-brown relative inline-block">
+                        โทนพาสเทล
+                        <span class="absolute left-0 bottom-2 w-full h-3 bg-pastel-tan/30 -z-10 rounded-full"></span>
+                    </span>
+                    ที่แสนอบอุ่น
+                </h1>
+                <p class="text-pastel-dark/80 text-base md:text-lg max-w-lg leading-relaxed">
+                    ค้นพบความสุขแบบเรียบง่ายในทุกจิบ กับเมล็ดกาแฟคัดพิเศษ และนมสดคุณภาพระดับพรีเมียม ผสมผสานอย่างพิถีพิถันเสิร์ฟในแก้วกาแฟโทนอุ่นที่แต่งแต้มวันใหม่ของคุณให้สดใส
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-2">
+                    <a href="#menu" class="px-8 py-4 bg-pastel-espresso text-pastel-light font-medium rounded-full shadow-lg hover:bg-pastel-brown hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        ดูเมนูพิเศษทั้งสาม
+                    </a>
+                    <a href="#about" class="px-8 py-4 bg-pastel-light border border-pastel-clay text-pastel-espresso font-medium rounded-full hover:bg-pastel-bg/50 transition-all duration-300 text-center">
+                        เรียนรู้เพิ่มเติม
+                    </a>
+                </div>
+                
+                <!-- Quick features badge -->
+                <div class="grid grid-cols-3 gap-4 pt-6 border-t border-pastel-clay/30 max-w-md mx-auto md:mx-0">
+                    <div class="text-center md:text-left">
+                        <span class="block font-bold text-xl md:text-2xl text-pastel-espresso">100%</span>
+                        <span class="text-xs text-pastel-brown">เมล็ดอาราบิก้าแท้</span>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="block font-bold text-xl md:text-2xl text-pastel-espresso">Organic</span>
+                        <span class="text-xs text-pastel-brown">นมและน้ำผึ้งแท้</span>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="block font-bold text-xl md:text-2xl text-pastel-espresso">Cozy</span>
+                        <span class="text-xs text-pastel-brown">บรรยากาศผ่อนคลาย</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Right: Dynamic Cafe Pastel Illustration -->
+            <div class="flex justify-center items-center relative">
+                <!-- Outer Glow and Circle Background -->
+                <div class="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] bg-pastel-bg rounded-full border border-pastel-clay/50 flex justify-center items-center"></div>
+                
+                <!-- SVG Coffee Scene (Coffee Shop Pastels Vibe) -->
+                <div class="relative z-10 w-full max-w-[340px] sm:max-w-[420px] float-animation">
+                    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-2xl">
+                        <!-- Cafe Table Background -->
+                        <ellipse cx="250" cy="380" rx="180" ry="40" fill="#E6CCB2" opacity="0.8"/>
+                        <ellipse cx="250" cy="380" rx="140" ry="25" fill="#DDB892"/>
+
+                        <!-- Plant Pot -->
+                        <rect x="110" y="270" width="30" height="50" rx="5" fill="#EDE0D4" />
+                        <polygon points="100,270 150,270 140,230 110,230" fill="#9C6644" />
+                        <path d="M 125 230 C 110 200, 80 210, 95 180 C 110 150, 140 180, 125 230" fill="#B3C5B5" />
+                        <path d="M 125 230 C 140 200, 170 210, 155 180 C 140 150, 110 180, 125 230" fill="#A3B899" />
+
+                        <!-- Cozy Coffee Cup Main (Latte Art cup) -->
+                        <path d="M 200 240 L 300 240 L 285 340 A 35 35 0 0 1 215 340 Z" fill="#EDE0D4" stroke="#DDB892" stroke-width="4"/>
+                        <!-- Cup handle -->
+                        <path d="M 300 260 C 335 260, 335 310, 290 315" fill="none" stroke="#EDE0D4" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M 300 260 C 335 260, 335 310, 290 315" fill="none" stroke="#DDB892" stroke-width="4" stroke-linecap="round"/>
+                        
+                        <!-- Cup Sleeve (Pastel brown) -->
+                        <path d="M 203 260 L 297 260 L 290 305 L 210 305 Z" fill="#DDB892" opacity="0.9"/>
+                        <!-- Brand icon on cup sleeve -->
+                        <circle cx="250" cy="282" r="12" fill="#7F5539"/>
+                        <path d="M 246 280 Q 250 274 254 280" fill="none" stroke="#EDE0D4" stroke-width="2"/>
+                        <path d="M 245 284 L 255 284" fill="none" stroke="#EDE0D4" stroke-width="2"/>
+
+                        <!-- Coffee & Foam layer top -->
+                        <ellipse cx="250" cy="240" rx="46" ry="12" fill="#7F5539"/>
+                        <!-- Creamy Heart Latte Art -->
+                        <path d="M 250 246 C 240 232, 218 240, 250 252 C 282 240, 260 232, 250 246 Z" fill="#FDFBF7"/>
+
+                        <!-- Coffee Beans Floating -->
+                        <!-- Bean 1 -->
+                        <g transform="translate(340, 190) rotate(15) scale(0.8)">
+                            <ellipse cx="20" cy="15" rx="14" ry="20" fill="#7F5539" />
+                            <path d="M 20 5 Q 16 15 20 25" fill="none" stroke="#4A3525" stroke-width="2" />
+                        </g>
+                        <!-- Bean 2 -->
+                        <g transform="translate(140, 330) rotate(-30) scale(0.6)">
+                            <ellipse cx="20" cy="15" rx="14" ry="20" fill="#9C6644" />
+                            <path d="M 20 5 Q 24 15 20 25" fill="none" stroke="#4A3525" stroke-width="2" />
+                        </g>
+
+                        <!-- Cozy Aroma Steam Rising -->
+                        <path d="M 225 210 Q 215 180 235 150 T 225 90" fill="none" stroke="#DDB892" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+                        <path d="M 250 205 Q 265 175 250 145 T 265 95" fill="none" stroke="#EDE0D4" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+                        <path d="M 275 212 Q 260 185 280 155 T 270 100" fill="none" stroke="#DDB892" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Vibe Section -->
+    <section id="about" class="py-20 bg-pastel-bg/40">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Vibe Left: Interactive Gallery/Image Grid in Pastel Tone -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="h-60 rounded-3xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-500 border-4 border-pastel-light">
+                            <!-- Cozy shop interior mock -->
+                            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=400" alt="Pastel Cozy Interior" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/E6CCB2/7F5539?text=Pastel+Brew+Cafe'">
+                        </div>
+                        <div class="h-44 bg-pastel-tan rounded-3xl p-6 flex flex-col justify-end text-pastel-dark shadow-sm border border-pastel-light">
+                            <span class="text-3xl font-bold block mb-1">08:00</span>
+                            <span class="text-sm font-medium opacity-80">เปิดต้อนรับคุณทุกวันสัมผัสฟิลพาสเทลแสนสงบ</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="h-44 bg-[#C5A880]/30 rounded-3xl p-6 flex flex-col justify-between text-pastel-espresso shadow-sm border border-pastel-light">
+                            <i class="fa-solid fa-seedling text-3xl"></i>
+                            <span class="text-sm font-semibold">ใส่ใจสิ่งแวดล้อมด้วยบรรจุภัณฑ์ที่ย่อยสลายได้ง่าย</span>
+                        </div>
+                        <div class="h-60 rounded-3xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-500 border-4 border-pastel-light">
+                            <!-- Hands holding warm pastel coffee mug -->
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=400" alt="Warm Coffee Cup" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/EDE0D4/9C6644?text=Cozy+Hand+Mug'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vibe Right: Story -->
+                <div class="space-y-6">
+                    <span class="text-pastel-brown font-semibold tracking-widest uppercase text-sm block">Our Cozy Concept</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-pastel-espresso">จุดเริ่มต้นของพื้นที่แห่ง "ความสุขที่พอดี"</h2>
+                    <p class="text-pastel-dark/80 leading-relaxed">
+                        ที่ <strong>Pastel Brew</strong> เราเชื่อว่าความสุขที่ดีที่สุดเกิดขึ้นในตอนที่ทุกอย่าง "เรียบง่ายและพอดี" เราจึงคุมโทนร้านด้วยโทนสีพาสเทลที่ให้ฟีลความผ่อนคลายเหมือนได้นั่งเล่นในบ้านที่เงียบสงบ
+                    </p>
+                    <p class="text-pastel-dark/80 leading-relaxed">
+                        บาริสต้าของเรามีความสุขทุกครั้งที่ได้ชง และหวังว่ารอยยิ้มบนฟองนมจะทำหน้าที่ส่งมอบวันดีๆ ให้กับคุณในทุกเช้า
+                    </p>
+                    <div class="pt-4 flex flex-col gap-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-pastel-clay flex items-center justify-center text-pastel-espresso">
+                                <i class="fa-solid fa-heart text-sm"></i>
+                            </span>
+                            <span class="font-medium text-pastel-espresso text-sm md:text-base">ปรุงรสด้วยความตั้งใจ บาลานซ์ความหอมมันของนมคุณภาพดี</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-pastel-clay flex items-center justify-center text-pastel-espresso">
+                                <i class="fa-solid fa-leaf text-sm"></i>
+                            </span>
+                            <span class="font-medium text-pastel-espresso text-sm md:text-base">เมล็ดกาแฟสเปเชียลตี้ระดับพรีเมียมคั่วระดับกลางหอมอบอวล</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section (The Core 3 Menus) -->
+    <section id="menu" class="py-20 bg-pastel-light">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="text-pastel-brown font-bold tracking-widest uppercase text-sm block">Signature Trio</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-pastel-espresso">3 เมนูแสนอบอุ่นที่เราคัดมาเพื่อคุณ</h2>
+                <div class="w-16 h-1 bg-pastel-tan mx-auto rounded-full"></div>
+                <p class="text-pastel-dark/70 text-sm md:text-base">
+                    เมนูยอดฮิตที่ผสานรวมเข้ากับวัฒนธรรมพาสเทลแสนนุ่มลึก ค้นพบเมนูโปรดที่จะเติมพลังและความละมุนให้เช้าวันใหม่ของคุณ
+                </p>
+            </div>
+
+            <!-- Menu Grid (3 Cards) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Menu 1: Latte -->
+                <div class="bg-pastel-bg/30 border border-pastel-clay/30 rounded-3xl p-6 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div>
+                        <!-- SVG Latte Illustration -->
+                        <div class="w-full h-48 flex items-center justify-center bg-white rounded-2xl mb-6 shadow-sm group-hover:bg-pastel-milk/50 transition-colors duration-300 overflow-hidden relative">
+                            <span class="absolute top-3 left-3 px-2 py-1 bg-pastel-tan/40 text-pastel-espresso text-xs font-semibold rounded-full">ยอดนิยม ✨</span>
+                            <svg class="w-32 h-32" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Base Saucer -->
+                                <ellipse cx="60" cy="95" rx="35" ry="8" fill="#E6CCB2"/>
+                                <!-- Cup Body -->
+                                <path d="M 35 50 L 85 50 L 78 90 C 75 95, 45 95, 42 90 Z" fill="#EDE0D4" stroke="#9C6644" stroke-width="2"/>
+                                <path d="M 85 60 C 95 60, 95 80, 80 82" fill="none" stroke="#EDE0D4" stroke-width="6"/>
+                                <path d="M 85 60 C 95 60, 95 80, 80 82" fill="none" stroke="#9C6644" stroke-width="1.5"/>
+                                <!-- Sleeve with heart -->
+                                <path d="M 37 60 L 83 60 L 80 75 L 40 75 Z" fill="#DDB892"/>
+                                <circle cx="60" cy="67.5" r="5" fill="#7F5539"/>
+                                <!-- Coffee & Foam top -->
+                                <ellipse cx="60" cy="50" rx="23" ry="5" fill="#7F5539"/>
+                                <path d="M 60 52 C 55 45, 48 50, 60 54 C 72 50, 65 45, 60 52 Z" fill="#FDFBF7"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-pastel-espresso mb-2 flex justify-between items-center">
+                            <span>ลาเต้นมสดพาสเทล</span>
+                            <span class="text-pastel-brown text-lg font-extrabold">75 ฿</span>
+                        </h3>
+                        <p class="text-pastel-dark/80 text-sm leading-relaxed mb-6">
+                            กาแฟเอสเพรสโซ่เข้มข้นกลิ่นเฮเซลนัท ค่อยๆ บ่มและผสมผสานเข้ากับนมสดออร์แกนิกแท้ มอบรสสัมผัสที่หวานมัน นุ่มละมุนลิ้น ดั่งเฉดสีพาสเทลยามเช้า
+                        </p>
+                    </div>
+                    <button onclick="openCustomizeModal('ลาเต้นมสดพาสเทล', 75, 'Latte')" class="w-full bg-pastel-espresso text-pastel-light py-3 rounded-2xl font-semibold hover:bg-pastel-brown transition-colors shadow-md flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-mug-hot"></i> เลือกและปรับแต่งเมนู
+                    </button>
+                </div>
+
+                <!-- Menu 2: Wild Honey Americano -->
+                <div class="bg-pastel-bg/30 border border-pastel-clay/30 rounded-3xl p-6 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div>
+                        <!-- SVG Americano Illustration -->
+                        <div class="w-full h-48 flex items-center justify-center bg-white rounded-2xl mb-6 shadow-sm group-hover:bg-pastel-milk/50 transition-colors duration-300 overflow-hidden relative">
+                            <span class="absolute top-3 left-3 px-2 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">สดชื่น 🍯</span>
+                            <svg class="w-32 h-32" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Base Saucer -->
+                                <ellipse cx="60" cy="95" rx="35" ry="8" fill="#E6CCB2"/>
+                                <!-- Cup Body (Clear Glass look) -->
+                                <path d="M 38 45 L 82 45 L 75 90 C 72 95, 48 95, 45 90 Z" fill="none" stroke="#DDB892" stroke-width="3"/>
+                                <!-- Coffee Level -->
+                                <path d="M 40 55 L 80 55 L 75 90 C 72 95, 48 95, 45 90 Z" fill="#4A3525" opacity="0.95"/>
+                                <!-- Glass reflection -->
+                                <path d="M 42 48 L 44 85" fill="none" stroke="#FDFBF7" stroke-width="2" opacity="0.6"/>
+                                <!-- Honey dripping inside -->
+                                <path d="M 60 55 Q 63 70 57 80" fill="none" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="57" cy="80" r="3" fill="#F59E0B"/>
+                                <!-- Coffee surface -->
+                                <ellipse cx="60" cy="55" rx="19" ry="4" fill="#7F5539"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-pastel-espresso mb-2 flex justify-between items-center">
+                            <span>อเมริกาโน่น้ำผึ้งป่า</span>
+                            <span class="text-pastel-brown text-lg font-extrabold">65 ฿</span>
+                        </h3>
+                        <p class="text-pastel-dark/80 text-sm leading-relaxed mb-6">
+                            เอาใจสายคลีนผู้รักสุขภาพ ด้วยช็อตเอสเพรสโซ่เข้มข้นรสนุ่ม ผสานกับน้ำผึ้งดอกไม้ป่าแท้ 100% มอบความหอมหวานอ่อนละมุน ช่วยปลุกพลังยามบ่ายอย่างเป็นธรรมชาติ
+                        </p>
+                    </div>
+                    <button onclick="openCustomizeModal('อเมริกาโน่น้ำผึ้งป่า', 65, 'Americano')" class="w-full bg-pastel-espresso text-pastel-light py-3 rounded-2xl font-semibold hover:bg-pastel-brown transition-colors shadow-md flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-mug-hot"></i> เลือกและปรับแต่งเมนู
+                    </button>
+                </div>
+
+                <!-- Menu 3: Cappuccino -->
+                <div class="bg-pastel-bg/30 border border-pastel-clay/30 rounded-3xl p-6 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div>
+                        <!-- SVG Cappuccino Illustration -->
+                        <div class="w-full h-48 flex items-center justify-center bg-white rounded-2xl mb-6 shadow-sm group-hover:bg-pastel-milk/50 transition-colors duration-300 overflow-hidden relative">
+                            <span class="absolute top-3 left-3 px-2 py-1 bg-orange-100 text-orange-800 text-xs font-semibold rounded-full">หอมนุ่ม ☁️</span>
+                            <svg class="w-32 h-32" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Base Saucer -->
+                                <ellipse cx="60" cy="95" rx="35" ry="8" fill="#E6CCB2"/>
+                                <!-- Cup Body -->
+                                <path d="M 35 52 L 85 52 L 78 92 C 75 97, 45 97, 42 92 Z" fill="#DDB892" stroke="#9C6644" stroke-width="2"/>
+                                <path d="M 35 62 C 25 62, 25 80, 40 82" fill="none" stroke="#DDB892" stroke-width="6"/>
+                                <path d="M 35 62 C 25 62, 25 80, 40 82" fill="none" stroke="#9C6644" stroke-width="1.5"/>
+                                <!-- Coffee Foam Layer -->
+                                <ellipse cx="60" cy="52" rx="23" ry="5" fill="#7F5539"/>
+                                <!-- Thick foam cap -->
+                                <path d="M 37 50 C 35 44, 45 42, 50 45 C 55 40, 65 40, 70 44 C 75 42, 85 44, 83 50 Z" fill="#F5EBE0"/>
+                                <ellipse cx="60" cy="48" rx="20" ry="4" fill="#FDFBF7"/>
+                                <!-- Cinnamon dustings -->
+                                <circle cx="55" cy="47" r="1" fill="#7F5539"/>
+                                <circle cx="62" cy="46" r="1" fill="#7F5539"/>
+                                <circle cx="68" cy="48" r="1.5" fill="#7F5539"/>
+                                <circle cx="50" cy="49" r="1" fill="#7F5539"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-pastel-espresso mb-2 flex justify-between items-center">
+                            <span>คาปูชิโน่ฟองนุ่ม</span>
+                            <span class="text-pastel-brown text-lg font-extrabold">80 ฿</span>
+                        </h3>
+                        <p class="text-pastel-dark/80 text-sm leading-relaxed mb-6">
+                            สัมผัสฟองนมหนานุ่มดุจปุยเมฆ โรยด้วยผงช็อกโกแลตเกรดนำเข้า มอบรสชาติกาแฟเข้มข้นผสานความละมุนนุ่มนวลอย่างสมดุลแบบฉบับดั้งเดิมสไตล์อิตาลี
+                        </p>
+                    </div>
+                    <button onclick="openCustomizeModal('คาปูชิโน่ฟองนุ่ม', 80, 'Cappuccino')" class="w-full bg-pastel-espresso text-pastel-light py-3 rounded-2xl font-semibold hover:bg-pastel-brown transition-colors shadow-md flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-mug-hot"></i> เลือกและปรับแต่งเมนู
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customization Modal -->
+    <div id="customizeModal" class="fixed inset-0 bg-pastel-dark/60 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300 px-4">
+        <div class="bg-pastel-light rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-pastel-clay transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+            <!-- Close button -->
+            <button onclick="closeCustomizeModal()" class="absolute top-4 right-4 text-pastel-espresso hover:bg-pastel-clay/30 p-2 rounded-full transition-colors">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Coffee Info -->
+            <div class="flex items-center gap-4 border-b border-pastel-clay/40 pb-4 mb-6">
+                <div id="modalCoffeeIcon" class="p-3 bg-pastel-bg rounded-2xl text-pastel-espresso">
+                    <i class="fa-solid fa-mug-hot text-3xl"></i>
+                </div>
+                <div>
+                    <h3 id="modalCoffeeName" class="text-2xl font-bold text-pastel-espresso">ชื่อเมนู</h3>
+                    <p class="text-sm text-pastel-brown">ปรับแต่งเครื่องดื่มแก้วโปรดในสไตล์คุณ</p>
+                </div>
+            </div>
+
+            <form id="customizeForm" onsubmit="handleOrderSubmit(event)">
+                <input type="hidden" id="basePrice" value="0">
+                <input type="hidden" id="selectedCoffeeType" value="">
+
+                <!-- Temperature Options -->
+                <div class="mb-6">
+                    <label class="block font-bold text-pastel-espresso mb-3">ระดับความร้อน/เย็น <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <label class="relative flex flex-col items-center justify-center p-3 border border-pastel-clay rounded-2xl cursor-pointer hover:bg-pastel-bg/40 transition-colors select-none">
+                            <input type="radio" name="temperature" value="ร้อน" checked class="absolute opacity-0 pointer-events-none peer" onchange="calculatePrice()">
+                            <span class="peer-checked:bg-orange-100 peer-checked:border-orange-400 peer-checked:text-orange-800 border-2 border-transparent w-full h-full absolute inset-0 rounded-2xl transition-all -z-10"></span>
+                            <i class="fa-solid fa-fire text-orange-500 mb-1"></i>
+                            <span class="text-sm font-semibold text-pastel-dark">ร้อน (+0 ฿)</span>
+                        </label>
+                        <label class="relative flex flex-col items-center justify-center p-3 border border-pastel-clay rounded-2xl cursor-pointer hover:bg-pastel-bg/40 transition-colors select-none">
+                            <input type="radio" name="temperature" value="เย็น" class="absolute opacity-0 pointer-events-none peer" onchange="calculatePrice()">
+                            <span class="peer-checked:bg-blue-100 peer-checked:border-blue-300 peer-checked:text-blue-800 border-2 border-transparent w-full h-full absolute inset-0 rounded-2xl transition-all -z-10"></span>
+                            <i class="fa-solid fa-snowflake text-blue-400 mb-1"></i>
+                            <span class="text-sm font-semibold text-pastel-dark">เย็น (+10 ฿)</span>
+                        </label>
+                        <label class="relative flex flex-col items-center justify-center p-3 border border-pastel-clay rounded-2xl cursor-pointer hover:bg-pastel-bg/40 transition-colors select-none">
+                            <input type="radio" name="temperature" value="ปั่น" class="absolute opacity-0 pointer-events-none peer" onchange="calculatePrice()">
+                            <span class="peer-checked:bg-teal-100 peer-checked:border-teal-300 peer-checked:text-teal-800 border-2 border-transparent w-full h-full absolute inset-0 rounded-2xl transition-all -z-10"></span>
+                            <i class="fa-solid fa-wind text-teal-500 mb-1"></i>
+                            <span class="text-sm font-semibold text-pastel-dark">ปั่น (+15 ฿)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Sweetness Level Options -->
+                <div class="mb-6">
+                    <label class="block font-bold text-pastel-espresso mb-3">ระดับความหวาน <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-4 gap-2">
+                        <label class="relative flex flex-col items-center p-2 border border-pastel-clay rounded-xl cursor-pointer hover:bg-pastel-bg/40 transition-colors">
+                            <input type="radio" name="sweetness" value="ไม่หวาน (0%)" class="absolute opacity-0 pointer-events-none peer">
+                            <span class="peer-checked:bg-pastel-tan/40 peer-checked:border-pastel-brown border-2 border-transparent w-full h-full absolute inset-0 rounded-xl -z-10"></span>
+                            <span class="text-xs font-bold">0%</span>
+                            <span class="text-[10px] text-pastel-brown">ไม่หวาน</span>
+                        </label>
+                        <label class="relative flex flex-col items-center p-2 border border-pastel-clay rounded-xl cursor-pointer hover:bg-pastel-bg/40 transition-colors">
+                            <input type="radio" name="sweetness" value="หวานน้อย (25%)" class="absolute opacity-0 pointer-events-none peer">
+                            <span class="peer-checked:bg-pastel-tan/40 peer-checked:border-pastel-brown border-2 border-transparent w-full h-full absolute inset-0 rounded-xl -z-10"></span>
+                            <span class="text-xs font-bold">25%</span>
+                            <span class="text-[10px] text-pastel-brown">หวานน้อย</span>
+                        </label>
+                        <label class="relative flex flex-col items-center p-2 border border-pastel-clay rounded-xl cursor-pointer hover:bg-pastel-bg/40 transition-colors">
+                            <input type="radio" name="sweetness" value="หวานปกติ (50%)" checked class="absolute opacity-0 pointer-events-none peer">
+                            <span class="peer-checked:bg-pastel-tan/40 peer-checked:border-pastel-brown border-2 border-transparent w-full h-full absolute inset-0 rounded-xl -z-10"></span>
+                            <span class="text-xs font-bold">50%</span>
+                            <span class="text-[10px] text-pastel-brown">ปานกลาง</span>
+                        </label>
+                        <label class="relative flex flex-col items-center p-2 border border-pastel-clay rounded-xl cursor-pointer hover:bg-pastel-bg/40 transition-colors">
+                            <input type="radio" name="sweetness" value="หวานมาก (100%)" class="absolute opacity-0 pointer-events-none peer">
+                            <span class="peer-checked:bg-pastel-tan/40 peer-checked:border-pastel-brown border-2 border-transparent w-full h-full absolute inset-0 rounded-xl -z-10"></span>
+                            <span class="text-xs font-bold">100%</span>
+                            <span class="text-[10px] text-pastel-brown">หวานปกติ</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Milk Options -->
+                <div class="mb-6">
+                    <label class="block font-bold text-pastel-espresso mb-3">ทางเลือกนมพิเศษ</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="relative flex items-center gap-3 p-3 border border-pastel-clay rounded-2xl cursor-pointer hover:bg-pastel-bg/40 transition-all select-none">
+                            <input type="radio" name="milk" value="นมสดพรีเมียม" checked class="absolute opacity-0 pointer-events-none peer" onchange="calculatePrice()">
+                            <span class="peer-checked:bg-pastel-tan/30 peer-checked:border-pastel-brown border-2 border-transparent w-full h-full absolute inset-0 rounded-2xl -z-10"></span>
+                            <div class="w-5 h-5 rounded-full border border-pastel-brown flex items-center justify-center text-[10px] text-pastel-brown">
+                                <i class="fa-solid fa-cow"></i>
+                            </div>
+                            <span class="text-xs font-semibold">นมสดฟาร์มพรีเมียม (+0 ฿)</span>
+                        </label>
+                        <label class="relative flex items-center gap-3 p-3 border border-pastel-clay rounded-2xl cursor-pointer hover:bg-pastel-bg/40 transition-all select-none">
+                            <input type="radio" name="milk" value="นมโอ๊ต (Oat Milk)" class="absolute opacity-0 pointer-events-none peer" onchange="calculatePrice()">
+                            <span class="peer-checked:bg-pastel-tan/30 peer-checked:border-pastel-brown border-2 border-transparent w-full h-full absolute inset-0 rounded-2xl -z-10"></span>
+                            <div class="w-5 h-5 rounded-full border border-pastel-brown flex items-center justify-center text-[10px] text-pastel-brown">
+                                <i class="fa-solid fa-wheat-awn"></i>
+                            </div>
+                            <span class="text-xs font-semibold">นมโอ๊ตออร์แกนิก (+15 ฿)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Add-on Extras -->
+                <div class="mb-6">
+                    <label class="block font-bold text-pastel-espresso mb-3">ท็อปปิ้งเพิ่มเติม</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center justify-between p-3 border border-pastel-clay rounded-2xl cursor-pointer hover:bg-pastel-bg/40 transition-all">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" id="addEspresso" value="15" class="rounded border-pastel-clay text-pastel-brown focus:ring-pastel-tan w-5 h-5 accent-pastel-espresso" onchange="calculatePrice()">
+                                <span class="text-sm font-semibold">เพิ่มเอสเพรสโซ่ช็อต (+15 ฿)</span>
+                            </div>
+                            <i class="fa-solid fa-plus text-xs text-pastel-brown"></i>
+                        </label>
+                        <label class="flex items-center justify-between p-3 border border-pastel-clay rounded-2xl cursor-pointer hover:bg-pastel-bg/40 transition-all">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" id="addCaramel" value="10" class="rounded border-pastel-clay text-pastel-brown focus:ring-pastel-tan w-5 h-5 accent-pastel-espresso" onchange="calculatePrice()">
+                                <span class="text-sm font-semibold">เพิ่มไซรัปคาราเมลพาสเทล (+10 ฿)</span>
+                            </div>
+                            <i class="fa-solid fa-plus text-xs text-pastel-brown"></i>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bottom Sticky Bar with total & button -->
+                <div class="border-t border-pastel-clay/40 pt-4 mt-6 flex justify-between items-center gap-4">
+                    <div>
+                        <span class="text-xs text-pastel-brown font-semibold block uppercase">ราคารวมทั้งสิ้น</span>
+                        <span id="totalDisplayPrice" class="text-3xl font-extrabold text-pastel-espresso">75 ฿</span>
+                    </div>
+                    <button type="submit" class="flex-1 bg-pastel-espresso text-pastel-light py-4 px-6 rounded-2xl font-bold hover:bg-pastel-brown transition-all shadow-lg text-center transform hover:-translate-y-0.5">
+                        ยืนยันการสั่งซื้อ ✨
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Success Notification -->
+    <div id="successToast" class="fixed bottom-6 right-6 z-50 bg-pastel-light border-2 border-pastel-brown rounded-2xl p-4 shadow-2xl flex items-center gap-4 max-w-sm hidden opacity-0 transform translate-y-4 transition-all duration-300">
+        <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+            <i class="fa-solid fa-circle-check text-2xl animate-bounce"></i>
+        </div>
+        <div>
+            <h4 class="font-bold text-pastel-espresso">รับออเดอร์แล้วค่ะ!</h4>
+            <p class="text-xs text-pastel-dark/80">บาริสต้ากำลังรังสรรค์กาแฟแก้วโปรดในสไตล์พาสเทลให้คุณ</p>
+        </div>
+        <button onclick="closeToast()" class="text-pastel-brown hover:text-pastel-espresso">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-pastel-bg/20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="text-pastel-brown font-bold tracking-widest uppercase text-sm block">Customer Reviews</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-pastel-espresso">ความประทับใจจากคอกาแฟ</h2>
+                <div class="w-16 h-1 bg-pastel-tan mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-pastel-light p-8 rounded-3xl border border-pastel-clay/40 shadow-sm space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-pastel-dark/80 text-sm leading-relaxed">
+                        "ชอบลาเต้นมสดพาสเทลมากค่ะ! นมมีความหอมหวานละมุน นุ่มลิ้นมากๆ ไม่เข้มขมจนเกินไป ทางร้านแต่งแก้วออกมาน่ารักเข้ากับโทนร้านสุดๆ แนะนำเลยค่ะ"
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-pastel-tan flex items-center justify-center font-bold text-pastel-espresso">M</div>
+                        <div>
+                            <span class="block text-sm font-bold text-pastel-espresso">คุณมุกดา พรหมรักษา</span>
+                            <span class="text-xs text-pastel-brown">ลูกค้าประจำ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-pastel-light p-8 rounded-3xl border border-pastel-clay/40 shadow-sm space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-pastel-dark/80 text-sm leading-relaxed">
+                        "อเมริกาโน่น้ำผึ้งป่าคือที่สุดของความสดชื่นยามบ่ายครับ หอมกลิ่นน้ำผึ้งแท้และกาแฟอาราบิก้าอย่างชัดเจน บรรยากาศร้านก็นั่งสบายสไตล์ Cozy มากๆ"
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-pastel-clay flex items-center justify-center font-bold text-pastel-espresso">P</div>
+                        <div>
+                            <span class="block text-sm font-bold text-pastel-espresso">คุณปิยะวัฒน์ มณีโชติ</span>
+                            <span class="text-xs text-pastel-brown">พนักงานฟรีแลนซ์</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-pastel-light p-8 rounded-3xl border border-pastel-clay/40 shadow-sm space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-pastel-dark/80 text-sm leading-relaxed">
+                        "ประทับใจความนุ่มของฟองนมคาปูชิโน่มากค่ะ ฟูหนาเต็มคำ โรยผงโกโก้มาอย่างลงตัว สั่งปรับลดความหวานได้ตามใจตอบโจทย์คนไม่ชอบหวานมากๆ เลยค่ะ"
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-10 h-10 rounded-full bg-pastel-bg flex items-center justify-center font-bold text-pastel-espresso">N</div>
+                        <div>
+                            <span class="block text-sm font-bold text-pastel-espresso">คุณนรินทร์ภรณ์ เกื้อกูล</span>
+                            <span class="text-xs text-pastel-brown">นักศึกษา</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-pastel-espresso text-pastel-light pt-16 pb-12">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-pastel-clay/20 pb-12 mb-8">
+            <!-- Footer Col 1: Shop details -->
+            <div class="space-y-4">
+                <a href="#" class="flex items-center gap-2 group">
+                    <span class="p-2 bg-pastel-clay rounded-full text-pastel-espresso">
+                        <i class="fa-solid fa-mug-hot text-xl"></i>
+                    </span>
+                    <span class="font-bold text-lg tracking-wider text-pastel-light leading-tight">PASTEL BREW</span>
+                </a>
+                <p class="text-pastel-light/70 text-sm leading-relaxed">
+                    สร้างสรรค์ทุกหยดกาแฟด้วยความรักและความละมุน พักกายผ่อนใจไปกับรสสัมผัสที่แสนอบอุ่นในโทนพาสเทล
+                </p>
+                <!-- Socials -->
+                <div class="flex gap-4 pt-2">
+                    <a href="#" class="w-10 h-10 bg-pastel-light/10 rounded-full flex items-center justify-center hover:bg-pastel-clay hover:text-pastel-espresso transition-all duration-300">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-pastel-light/10 rounded-full flex items-center justify-center hover:bg-pastel-clay hover:text-pastel-espresso transition-all duration-300">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-pastel-light/10 rounded-full flex items-center justify-center hover:bg-pastel-clay hover:text-pastel-espresso transition-all duration-300">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Col 2: Service Hours -->
+            <div class="space-y-4">
+                <h4 class="font-bold text-lg text-pastel-tan border-l-2 border-pastel-clay pl-3">เวลาให้บริการ</h4>
+                <ul class="space-y-2 text-sm text-pastel-light/80">
+                    <li class="flex justify-between">
+                        <span>วันจันทร์ - วันศุกร์:</span>
+                        <span class="font-semibold text-pastel-light">07:00 น. - 17:30 น.</span>
+                    </li>
+                    <li class="flex justify-between">
+                        <span>วันเสาร์ - วันอาทิตย์:</span>
+                        <span class="font-semibold text-pastel-light">08:00 น. - 18:00 น.</span>
+                    </li>
+                    <li class="pt-2 text-pastel-tan text-xs flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>เปิดให้บริการต้อนรับทุกวันหยุดเทศกาล</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Footer Col 3: Contact & Location -->
+            <div class="space-y-4">
+                <h4 class="font-bold text-lg text-pastel-tan border-l-2 border-pastel-clay pl-3">ติดต่อและที่อยู่</h4>
+                <ul class="space-y-3 text-sm text-pastel-light/80">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot mt-1 text-pastel-clay"></i>
+                        <span>123 ซอยอบอุ่น ถนนพาสเทล แขวงคาเฟ่ เขตกาแฟ กรุงเทพฯ 10110</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-pastel-clay"></i>
+                        <span>02-123-4567, 089-765-4321</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-envelope text-pastel-clay"></i>
+                        <span>hello@pastelbrew.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-pastel-light/50">
+            <span>© 2026 Pastel Brew Café. สิทธิครอบครองตามกฎหมายทั้งหมด.</span>
+            <div class="flex gap-4">
+                <a href="#" class="hover:underline">นโยบายความเป็นส่วนตัว</a>
+                <a href="#" class="hover:underline">ข้อตกลงการใช้งาน</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS Functionality -->
+    <script>
+        // Modal State Variables
+        const customizeModal = document.getElementById('customizeModal');
+        const modalCoffeeName = document.getElementById('modalCoffeeName');
+        const modalCoffeeIcon = document.getElementById('modalCoffeeIcon');
+        const basePriceInput = document.getElementById('basePrice');
+        const totalDisplayPrice = document.getElementById('totalDisplayPrice');
+        const customizeForm = document.getElementById('customizeForm');
+        const successToast = document.getElementById('successToast');
+        let toastTimeout;
+
+        // Open Customize Modal with Coffee Details
+        function openCustomizeModal(coffeeName, basePrice, coffeeType) {
+            modalCoffeeName.innerText = coffeeName;
+            basePriceInput.value = basePrice;
+            document.getElementById('selectedCoffeeType').value = coffeeType;
+
+            // Update icon background colors based on coffee type
+            if (coffeeType === 'Latte') {
+                modalCoffeeIcon.innerHTML = `<i class="fa-solid fa-mug-hot text-3xl text-pastel-espresso"></i>`;
+                modalCoffeeIcon.className = "p-3 bg-pastel-tan/40 rounded-2xl";
+            } else if (coffeeType === 'Americano') {
+                modalCoffeeIcon.innerHTML = `<i class="fa-solid fa-glass-water text-3xl text-amber-800"></i>`;
+                modalCoffeeIcon.className = "p-3 bg-amber-100 rounded-2xl";
+            } else {
+                modalCoffeeIcon.innerHTML = `<i class="fa-solid fa-cloud-sun text-3xl text-orange-800"></i>`;
+                modalCoffeeIcon.className = "p-3 bg-orange-100 rounded-2xl";
+            }
+
+            // Reset form selections
+            customizeForm.reset();
+            calculatePrice();
+
+            // Display Modal with animation
+            customizeModal.classList.remove('hidden');
+            setTimeout(() => {
+                customizeModal.classList.remove('opacity-0');
+                customizeModal.querySelector('.transform').classList.remove('scale-95');
+                customizeModal.querySelector('.transform').classList.add('scale-100');
+            }, 10);
+        }
+
+        // Close Customize Modal
+        function closeCustomizeModal() {
+            customizeModal.classList.add('opacity-0');
+            customizeModal.querySelector('.transform').classList.remove('scale-100');
+            customizeModal.querySelector('.transform').classList.add('scale-95');
+            setTimeout(() => {
+                customizeModal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Calculate dynamic pricing based on selections
+        function calculatePrice() {
+            const basePrice = parseFloat(basePriceInput.value) || 0;
+            let extraPrice = 0;
+
+            // Temperature Pricing Additions
+            const selectedTemp = document.querySelector('input[name="temperature"]:checked').value;
+            if (selectedTemp === 'เย็น') {
+                extraPrice += 10;
+            } else if (selectedTemp === 'ปั่น') {
+                extraPrice += 15;
+            }
+
+            // Milk Alternative Pricing Additions
+            const selectedMilk = document.querySelector('input[name="milk"]:checked').value;
+            if (selectedMilk === 'นมโอ๊ต (Oat Milk)') {
+                extraPrice += 15;
+            }
+
+            // Checkbox Add-ons Pricing Additions
+            if (document.getElementById('addEspresso').checked) {
+                extraPrice += parseFloat(document.getElementById('addEspresso').value);
+            }
+            if (document.getElementById('addCaramel').checked) {
+                extraPrice += parseFloat(document.getElementById('addCaramel').value);
+            }
+
+            // Update displaying total price
+            const totalPrice = basePrice + extraPrice;
+            totalDisplayPrice.innerText = totalPrice + " ฿";
+        }
+
+        // Handle Confirmation of Coffee Order
+        function handleOrderSubmit(event) {
+            event.preventDefault();
+
+            // Form data gather (for custom success tracking)
+            const coffeeName = modalCoffeeName.innerText;
+            const temp = document.querySelector('input[name="temperature"]:checked').value;
+            const sweet = document.querySelector('input[name="sweetness"]:checked').value;
+            const milk = document.querySelector('input[name="milk"]:checked').value;
+            const total = totalDisplayPrice.innerText;
+
+            // Close dialog modal
+            closeCustomizeModal();
+
+            // Show Toast Success Popup
+            showToast();
+        }
+
+        // Show toast animation
+        function showToast() {
+            clearTimeout(toastTimeout);
+            successToast.classList.remove('hidden');
+            setTimeout(() => {
+                successToast.classList.remove('opacity-0', 'translate-y-4');
+                successToast.classList.add('opacity-100', 'translate-y-0');
+            }, 50);
+
+            // Hide Toast after 4.5 seconds
+            toastTimeout = setTimeout(() => {
+                closeToast();
+            }, 4500);
+        }
+
+        // Close toast immediately
+        function closeToast() {
+            successToast.classList.remove('opacity-100', 'translate-y-0');
+            successToast.classList.add('opacity-0', 'translate-y-4');
+            setTimeout(() => {
+                successToast.classList.add('hidden');
+            }, 300);
+        }
+
+        // Handle Escape key on modal
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeCustomizeModal();
+            }
+        });
+    </script>
+</body>
+</html>
